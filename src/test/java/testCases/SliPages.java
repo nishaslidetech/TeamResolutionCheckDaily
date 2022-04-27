@@ -16,7 +16,7 @@ public class SliPages extends BaseClass {
 				{ 1680, 1050 }, };
 	}
 
-	@Test(dataProvider = "windowResolution", enabled = true)
+	@Test(dataProvider = "windowResolution", enabled = false)
 	public void checkResolutionForSliPages(int w, int h) throws InterruptedException {
 		setDriver(w, h);
 		System.out.println("Resolution = " + w + "*" + h);
