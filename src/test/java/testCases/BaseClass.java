@@ -196,10 +196,10 @@ public class BaseClass {
 				df.setRoundingMode(RoundingMode.DOWN);
 				// System.out.println(df.format(roundedValue));
 				float f = Float.parseFloat(df.format(roundedValue));
-				// System.out.println(f + " = float value");
+				 System.out.println(i + "--" + f + " = float value");
 				if (f >= 0.70 || f <= 0.68) {
-					System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
-							+ listofImages.get(i).getAttribute("title") + " -" + width + "-" + hight + "\n"
+					System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtNumber= "
+							+ i + " -" + width + "-" + hight + "\n"
 							+ df.format(roundedValue) + "Resolution = " + w + "*" + h);
 
 				}
