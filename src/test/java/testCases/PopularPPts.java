@@ -35,6 +35,8 @@ public class PopularPPts extends BaseClass {
 		log.info("popularPPts is successfully clicked");
 		Thread.sleep(3000);
 		checkResolutionForNewlyAndPopular(driver, w, h);
+		driver.get("https://www.slideteam.net/professional-powerpoint-templates?p=2");
+		checkResolutionForNewlyAndPopular(driver, w, h);
 		driver.close();
 
 	}
