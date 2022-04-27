@@ -12,8 +12,9 @@ public class SliPages extends BaseClass {
 	public Object[][] windowResolution() {
 
 		return new Object[][] { // { 1536, 864 } - getting 1.73
-				{ 1280, 720 }, { 1366, 768 }, { 2560, 1440 }, { 1920, 1080 }, { 1920, 1200 }, { 1440, 900 },
-				{ 1680, 1050 }, };
+				{ 2560, 1440 }, { 1920, 1080 }, { 1920, 1200 }, { 1440, 900 }, { 1280, 720 },
+				// { 1680, 1050 },
+		};
 	}
 
 	@Test(dataProvider = "windowResolution", enabled = true)
@@ -42,14 +43,6 @@ public class SliPages extends BaseClass {
 		kpiDashooard.click();
 		Thread.sleep(3000);
 		log.info("kpiDashooard is successfully clicked");
-		BaseClass.checkResolutionSliPages(driver);
-
-		System.out.println("professional pages");
-		WebElement professional = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("professional"))));
-		professional.click();
-		Thread.sleep(3000);
-		log.info("professional is successfully clicked");
 		BaseClass.checkResolutionSliPages(driver);
 
 		System.out.println("management pages");
