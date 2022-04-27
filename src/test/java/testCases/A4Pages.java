@@ -32,7 +32,7 @@ public class A4Pages extends BaseClass {
 			WebElement onePager = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("onePager"))));
 			onePager.click();
 			log.info("onePager is successfully clicked");
-			Thread.sleep(3000);
+			Thread.sleep(6000);
 
 			List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("Pagination")));
 
