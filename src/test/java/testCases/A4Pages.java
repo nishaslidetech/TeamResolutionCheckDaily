@@ -25,40 +25,46 @@ public class A4Pages extends BaseClass {
 
 	@Test(dataProvider = "windowResolution", enabled = true)
 	public void checkResolutionForA4Pages(int w, int h) throws InterruptedException {
-		setDriver(w, h);
-		// System.out.println("Resolution = " + w + "*"+ h );
-		driver.get(config.getProperty("testsiteurl"));
-		WebElement onePager = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("onePager"))));
-		onePager.click();
-		log.info("onePager is successfully clicked");
-		Thread.sleep(3000);
+		try {
+			setDriver(w, h);
+			// System.out.println("Resolution = " + w + "*"+ h );
+			driver.get(config.getProperty("testsiteurl"));
+			WebElement onePager = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("onePager"))));
+			onePager.click();
+			log.info("onePager is successfully clicked");
+			Thread.sleep(3000);
 
-		List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("Pagination")));
+			List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("Pagination")));
 
-		System.out.println(sizeofPagination.size() + " = size");
+			System.out.println(sizeofPagination.size() + " = size");
 
-		if (sizeofPagination.size() > 0) {
-			System.out.println("pagination exists");
+			if (sizeofPagination.size() > 0) {
+				System.out.println("pagination exists");
 
-			// click on pagination link
+				// click on pagination link
 
-			for (int j = 1; j < 2; j++) {
-				BaseClass.checkResolutionForA4Pages(driver, w, h);
+				for (int j = 1; j < 2; j++) {
+					BaseClass.checkResolutionForA4Pages(driver, w, h);
 
-				if (!driver.findElements(By.xpath(OR.getProperty("NextButton"))).isEmpty()) {
-					WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("NextButton")));
-					log.info("nextButton is successfully clicked");
-					nextButton.click();
-					Thread.sleep(3000);
-				} else
+					if (!driver.findElements(By.xpath(OR.getProperty("NextButton"))).isEmpty()) {
+						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("NextButton")));
+						log.info("nextButton is successfully clicked");
+						nextButton.click();
+						Thread.sleep(3000);
+					} else
 
-				{
-					break;
+					{
+						break;
+					}
 				}
+			} else {
+				System.out.println("No pagination exists");
 			}
-		} else {
-			System.out.println("No pagination exists");
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
 		}
-		driver.close();
+
 	}
 }
+
