@@ -28,7 +28,7 @@ public class WidgetsPages extends BaseClass {
 				{ 1920, 1200 }, { 1440, 900 }, {1680,1050}};
 	}
 
-	@Test(dataProvider = "windowResolution", enabled = false)
+	@Test(dataProvider = "windowResolution", enabled = true)
 	public void checkResolutionForWidgets(int w, int h) throws InterruptedException {
 		setDriver(w, h);
 		System.out.println("Resolution = " + w + "*"+ h );
