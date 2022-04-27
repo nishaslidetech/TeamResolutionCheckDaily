@@ -46,7 +46,7 @@ public class WidgetsPages extends BaseClass {
 			//System.out.println((roundedValue) + "roundedValue");
 			DecimalFormat df = new DecimalFormat("#.##");
 			df.setRoundingMode(RoundingMode.DOWN);
-			//float f = Float.parseFloat(df.format(roundedValue));
+			float f = Float.parseFloat(df.format(roundedValue));
 			if ((f <= 1.74) || f >= 1.78) {
 				System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
 						+ listofImages.get(i) + " -" + width + "-" + hight + "\n"
