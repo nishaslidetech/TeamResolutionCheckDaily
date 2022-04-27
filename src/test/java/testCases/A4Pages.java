@@ -64,7 +64,7 @@ public class A4Pages extends BaseClass {
 			
 			e.printStackTrace();
 		}
-
+               driver.close();
 	}
 }
 
