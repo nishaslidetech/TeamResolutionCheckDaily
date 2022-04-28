@@ -98,7 +98,7 @@ public class BaseClass {
 			System.out.println(f + " = float value");
 			if ((f > 1.79) || (f <= 1.47) || (f >= 1.49 && f <= 1.74)) {
 				System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
-						+ listofImages.get(i).getAttribute("title") + " -" + width + "-" + hight + "\n"
+						+ i + " -" + width + "-" + hight + "\n"
 						+ df.format(roundedValue));
 
 			}
