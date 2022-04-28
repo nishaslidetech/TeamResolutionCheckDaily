@@ -33,20 +33,8 @@ public class A4Pages extends BaseClass {
 		log.info("onePager is successfully clicked");
 		Thread.sleep(3000);
 
-		List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("Pagination")));
-
-		System.out.println(sizeofPagination.size() + " = size");
-
-		if (sizeofPagination.size() > 0) {
-			System.out.println("pagination exists");
-
-			BaseClass.checkResolutionForA4Pages(driver, w, h);
-
-		} else {
-			System.out.println("No pagination exists");
-		}
-		driver.close();
+		BaseClass.checkResolutionForA4Pages(driver, w, h);
+         driver.close();
 	}
 }
-
 
