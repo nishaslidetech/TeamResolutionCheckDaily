@@ -79,59 +79,37 @@ public class BaseClass {
 
 	public static void checkResolutionSliPages(WebDriver driver) throws InterruptedException {
 
-		try {
-			List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("SliPagination")));
+		List<WebElement> listofImages = driver.findElements(By.xpath(OR.getProperty("SliImages")));
+		System.out.println("Number of elements:" + listofImages.size());
 
-			System.out.println(sizeofPagination.size() + " = size");
+		for (int i = 0; i < listofImages.size(); i++) {
 
-			if (sizeofPagination.size() > 0) {
-				System.out.println("pagination exists");
+			float width = listofImages.get(i).getSize().getWidth();
+			float hight = listofImages.get(i).getSize().getHeight();
 
-				// click on pagination link
+			// System.out.println(listofImages.get(i).getAttribute("title") + " -" + width +
+			// "-" + hight);
 
-				
-					List<WebElement> listofImages = driver.findElements(By.xpath(OR.getProperty("SliImages")));
-					System.out.println("Number of elements:" + listofImages.size());
+			float roundedValue = width / hight;
+			DecimalFormat df = new DecimalFormat("#.##");
+			df.setRoundingMode(RoundingMode.DOWN);
+			// System.out.println(df.format(roundedValue));
+			float f = Float.parseFloat(df.format(roundedValue));
+			System.out.println(f + " = float value");
+			if ((f > 1.79) || (f <= 1.47) || (f >= 1.49 && f <= 1.74)) {
+				System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
+						+ listofImages.get(i).getAttribute("title") + " -" + width + "-" + hight + "\n"
+						+ df.format(roundedValue));
 
-					for (int i = 0; i < listofImages.size(); i++) {
-
-						float width = listofImages.get(i).getSize().getWidth();
-						float hight = listofImages.get(i).getSize().getHeight();
-
-						// System.out.println(listofImages.get(i).getAttribute("title") + " -" + width +
-						// "-" + hight);
-
-						float roundedValue = width / hight;
-						DecimalFormat df = new DecimalFormat("#.##");
-						df.setRoundingMode(RoundingMode.DOWN);
-						// System.out.println(df.format(roundedValue));
-						float f = Float.parseFloat(df.format(roundedValue));
-						 System.out.println(f + " = float value");
-						if ((f > 1.79) || (f <= 1.47) || (f >= 1.49 && f <= 1.74)) {
-							System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
-									+ listofImages.get(i).getAttribute("title") + " -" + width + "-" + hight + "\n"
-									+ df.format(roundedValue));
-
-						}
-
-						assertTrue(
-								df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.79")
-										|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.78"),
-								"image is not displayed properly");
-
-					
-
-					
-				}
-			} else {
-				System.out.println("No pagination exists");
 			}
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			assertTrue(
+					df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.79")
+							|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.78"),
+					"image is not displayed properly");
+
 		}
 	}
-
 	public static void checkResolutionForNewlyAndPopular(WebDriver driver, int w, int h) throws InterruptedException {
 
 		
