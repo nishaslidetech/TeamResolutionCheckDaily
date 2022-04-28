@@ -5,7 +5,7 @@ import static org.testng.Assert.assertTrue;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.List;
-
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -49,8 +49,23 @@ public class A4Pages extends BaseClass {
 					if (!driver.findElements(By.xpath(OR.getProperty("NextButton"))).isEmpty()) {
 						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("NextButton")));
 						log.info("nextButton is successfully clicked");
-						nextButton.click();
-						Thread.sleep(3000);
+						
+					
+						 try
+						    {
+							 Thread.sleep(3000);
+								nextButton.click();
+								Thread.sleep(3000);
+						    }
+						    catch(WebDriverException e)
+						    {
+						    	nextButton.click();
+						    }
+						    catch(Exception ee)
+						    {
+						        ee.printStackTrace();
+						        throw ee;
+						    }
 					} else
 
 					{
