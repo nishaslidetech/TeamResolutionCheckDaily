@@ -89,7 +89,7 @@ public class BaseClass {
 
 				// click on pagination link
 
-				for (int j = 1; j < 2; j++) {
+				
 					List<WebElement> listofImages = driver.findElements(By.xpath(OR.getProperty("SliImages")));
 					System.out.println("Number of elements:" + listofImages.size());
 
@@ -119,31 +119,9 @@ public class BaseClass {
 										|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.78"),
 								"image is not displayed properly");
 
-					}
+					
 
-					if (!driver.findElements(By.xpath(OR.getProperty("SliPaginationNextButton"))).isEmpty()) {
-						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("SliPaginationNextButton")));
-						 try
-						    {
-							 Thread.sleep(3000);
-								nextButton.click();
-								Thread.sleep(3000);
-						    }
-						    catch(WebDriverException e)
-						    {
-						    	nextButton.click();
-						    }
-						    catch(Exception ee)
-						    {
-						        ee.printStackTrace();
-						        throw ee;
-						    }
-						Thread.sleep(4000);
-					} else
-
-					{
-						break;
-					}
+					
 				}
 			} else {
 				System.out.println("No pagination exists");
