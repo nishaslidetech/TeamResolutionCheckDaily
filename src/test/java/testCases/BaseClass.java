@@ -123,7 +123,21 @@ public class BaseClass {
 
 					if (!driver.findElements(By.xpath(OR.getProperty("SliPaginationNextButton"))).isEmpty()) {
 						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("SliPaginationNextButton")));
-						nextButton.click();
+						 try
+						    {
+							 Thread.sleep(3000);
+								nextButton.click();
+								Thread.sleep(3000);
+						    }
+						    catch(WebDriverException e)
+						    {
+						    	nextButton.click();
+						    }
+						    catch(Exception ee)
+						    {
+						        ee.printStackTrace();
+						        throw ee;
+						    }
 						Thread.sleep(4000);
 					} else
 
