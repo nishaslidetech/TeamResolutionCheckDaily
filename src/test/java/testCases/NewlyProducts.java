@@ -11,8 +11,8 @@ public class NewlyProducts extends BaseClass {
 	public Object[][] windowResolution() {
 
 		return new Object[][] { { 2560, 1440 }, { 1920, 1080 }, { 1280, 720 }, { 1920, 1200 },
-				{ 1440, 900 },{ 1366, 768 },
-				 {1536, 864},{1680, 1050},
+				{ 1440, 900 },{ 1366, 768 },{1680, 1050}
+				 //{1536, 864},{1680, 1050},
 		};
 	}
 
