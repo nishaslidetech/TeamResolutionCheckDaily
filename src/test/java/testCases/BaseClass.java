@@ -140,7 +140,8 @@ public class BaseClass {
 
 						assertTrue(
 								df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.75")
-										|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.48"),
+										|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.48") ||df.format(roundedValue).equals("1.74")
+							                        ||df.format(roundedValue).equals("1.73"),
 								"image is not displayed properly");
 
 					}
