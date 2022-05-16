@@ -22,6 +22,7 @@ public class SliPages extends BaseClass {
 		setDriver(w, h);
 		System.out.println("Resolution = " + w + "*" + h);
 		driver.get(config.getProperty("testsiteurl"));
+		Thread.sleep(5000);
 		System.out.println("strategy pages");
 		WebElement strategy = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("strategy"))));
 		strategy.click();
