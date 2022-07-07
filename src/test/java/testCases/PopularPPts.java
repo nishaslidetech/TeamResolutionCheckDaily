@@ -16,10 +16,8 @@ public class PopularPPts extends BaseClass {
 
 		return new Object[][] {
 
-				{ 1920, 1080 }, { 1280, 720 }, { 1920, 1200 }, { 1440, 900 }, { 2560, 1440 }, { 1366, 768 }
-				//{1680, 1050},
-				//{ 1536, 864 } 
-				};
+				{ 1920, 1080 }, { 1280, 720 }, { 1920, 1200 }, { 1440, 900 }, { 2560, 1440 }, { 1366, 768 },
+				{ 1680, 1050 }, { 1536, 864 } };
 	}
 
 	@Test(dataProvider = "windowResolution", enabled = true)
@@ -41,9 +39,9 @@ public class PopularPPts extends BaseClass {
 			checkResolutionForNewlyAndPopular(driver, w, h);
 			driver.close();
 		} catch (InterruptedException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 	}
 }

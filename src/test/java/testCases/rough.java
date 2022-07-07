@@ -10,9 +10,11 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -77,6 +79,65 @@ public class rough extends BaseClass {
 		}
 		
 		}
+	}
+	
+	@Test(dataProvider = "windowResolution", enabled = true)
+	public void checkResolutionForA4Pages(int w, int h) throws InterruptedException {
+		try {
+			setDriver(w, h);
+			// System.out.println("Resolution = " + w + "*"+ h );
+			driver.get(config.getProperty("testsiteurl"));
+			WebElement onePager = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("onePager"))));
+			onePager.click();
+			log.info("onePager is successfully clicked");
+			Thread.sleep(6000);
+
+			List<WebElement> sizeofPagination = driver.findElements(By.xpath(OR.getProperty("Pagination")));
+
+			System.out.println(sizeofPagination.size() + " = size");
+
+			if (sizeofPagination.size() > 0) {
+				System.out.println("pagination exists");
+
+				// click on pagination link
+
+				for (int j = 1; j < 2; j++) {
+					BaseClass.checkResolutionForA4Pages(driver, w, h);
+
+					if (!driver.findElements(By.xpath(OR.getProperty("NextButton"))).isEmpty()) {
+						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("NextButton")));
+						log.info("nextButton is successfully clicked");
+						
+					
+						 try
+						    {
+							 Thread.sleep(3000);
+								nextButton.click();
+								Thread.sleep(3000);
+						    }
+						    catch(WebDriverException e)
+						    {
+						    	nextButton.click();
+						    }
+						    catch(Exception ee)
+						    {
+						        ee.printStackTrace();
+						        throw ee;
+						    }
+					} else
+
+					{
+						break;
+					}
+				}
+			} else {
+				System.out.println("No pagination exists");
+			}
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+               driver.close();
 	}
 
 }

@@ -10,26 +10,30 @@ import org.openqa.selenium.TakesScreenshot;
 
 import testCases.BaseClass;
 
-
-public class TakeScreenshots extends BaseClass{
+public class TakeScreenshots extends BaseClass {
 
 	public static String screenshotName;
 
-	public static void CaptureScreenshot() throws IOException
+	public static void CaptureScreenshot() {
 
-	{
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		Date d = new Date();
 
-		//screenshotName = "error_" + d.toString().replace(":", "_").replace(" ", "_") + ".png";
+		// screenshotName = "error_" + d.toString().replace(":", "_").replace(" ", "_")
+		// + ".png";
 
-		screenshotName = "FailedScreenShot"  + ".png";
-
+		screenshotName = "FailedScreenShot" + ".png";
 
 		// System.out.println(System.getProperty("user.dir"));
 
-		FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "\\target\\reports\\" + screenshotName));
+		try {
+			FileUtils.copyFile(scrFile,
+					new File(System.getProperty("user.dir") + "\\target\\reports\\" + screenshotName));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 
 	}
 

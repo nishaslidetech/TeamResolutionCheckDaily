@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-04-27T18:40:08 IST" name="Default suite" finished-at="2022-04-27T18:41:29 IST" duration-ms="81168">
+  <suite started-at="2022-04-28T16:23:19 IST" name="Default suite" finished-at="2022-04-28T16:25:09 IST" duration-ms="110307">
     <groups>
     </groups>
-    <test started-at="2022-04-27T18:40:08 IST" name="Default test" finished-at="2022-04-27T18:41:29 IST" duration-ms="81168">
-      <class name="testCases.SliPages">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.SliPages@130c12b7]" started-at="2022-04-27T18:40:08 IST" name="setUp" finished-at="2022-04-27T18:40:08 IST" duration-ms="52" status="PASS">
+    <test started-at="2022-04-28T16:23:19 IST" name="Default test" finished-at="2022-04-28T16:25:09 IST" duration-ms="110307">
+      <class name="testCases.A4Pages">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:23:19 IST" name="setUp" finished-at="2022-04-28T16:23:19 IST" duration-ms="61" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="checkResolutionForSliPages(int,int)[pri:0, instance:testCases.SliPages@130c12b7]" started-at="2022-04-27T18:40:08 IST" name="checkResolutionForSliPages" data-provider="windowResolution" finished-at="2022-04-27T18:41:29 IST" duration-ms="81146" status="PASS">
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:23:19 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:23:37 IST" duration-ms="17865" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,8 +26,120 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkResolutionForSliPages -->
-      </class> <!-- testCases.SliPages -->
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:23:37 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:23:50 IST" duration-ms="13028" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1920]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:23:50 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:24:02 IST" duration-ms="11749" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1280]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[720]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:24:02 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:24:16 IST" duration-ms="14120" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1536]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[864]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:24:16 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:24:27 IST" duration-ms="10998" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1366]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[768]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:24:27 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:24:45 IST" duration-ms="18236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1920]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1080]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:24:45 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:24:57 IST" duration-ms="11987" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1440]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[900]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+        <test-method signature="checkResolutionForA4Pages(int,int)[pri:0, instance:testCases.A4Pages@130c12b7]" started-at="2022-04-28T16:24:57 IST" name="checkResolutionForA4Pages" data-provider="windowResolution" finished-at="2022-04-28T16:25:09 IST" duration-ms="12283" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1680]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1050]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResolutionForA4Pages -->
+      </class> <!-- testCases.A4Pages -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

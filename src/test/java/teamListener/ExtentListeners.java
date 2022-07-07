@@ -22,12 +22,12 @@ public class ExtentListeners implements ITestListener {
 
 	static Date d = new Date();
 
-	//static String fileName1 = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
+	// static String fileName1 = "Extent_" + d.toString().replace(":",
+	// "_").replace(" ", "_") + ".html";
 	static String fileName = "ExtentReport" + ".html";
 
-	
-
-	private static ExtentReports extent = ExtentManager.createInstance(System.getProperty("user.dir") + "\\reports\\" + fileName);
+	private static ExtentReports extent = ExtentManager
+			.createInstance(System.getProperty("user.dir") + "\\reports\\" + fileName);
 
 	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 
@@ -55,20 +55,14 @@ public class ExtentListeners implements ITestListener {
 				.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>" + "Exception Occured:Click to see"
 						+ "</font>" + "</b >" + "</summary>" + excepionMessage.replaceAll(",", "<br>") + "</details>"
 						+ " \n");
-		
-		try {
 
-			TakeScreenshots.CaptureScreenshot();
-			testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
-					MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshots.screenshotName).build());
-		} catch (IOException e) {
-
-		}
+		TakeScreenshots.CaptureScreenshot();
+		testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
+				MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshots.screenshotName).build());
 		String failureLogg = "TEST CASE FAILED";
 		Markup m = MarkupHelper.createLabel(failureLogg, ExtentColor.RED);
 		testReport.get().log(Status.FAIL, m);
 		BaseClass.driver.close();
-	
 
 	}
 
