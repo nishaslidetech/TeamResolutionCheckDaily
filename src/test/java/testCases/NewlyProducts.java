@@ -40,5 +40,6 @@ public class NewlyProducts extends BaseClass {
 			e.printStackTrace();
 		}
 
+		
 	}
 }
