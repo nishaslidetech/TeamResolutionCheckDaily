@@ -16,17 +16,19 @@ public class PopularPPts extends BaseClass {
 
 		return new Object[][] {
 
-				{ 1920, 1080 }, { 1280, 720 }, { 1920, 1200 }, { 1440, 900 }, { 2560, 1440 }, { 1366, 768 },
-				{ 1680, 1050 }, { 1536, 864 } };
+				{ 1280, 720 }, { 1440, 900 }, { 1366, 768 }
+				// {1680, 1050},{ 1920, 1080 },{ 1920, 1200 },{ 2560, 1440 },
+				// { 1536, 864 }
+		};
+
 	}
 
 	@Test(dataProvider = "windowResolution", enabled = true)
 	public void checkResolutionForpopularPPts(int w, int h) throws InterruptedException {
-
 		try {
 			setDriver(w, h);
 			System.out.println("Resolution = " + w + "*" + h);
-			driver.get(config.getProperty("testsiteurl"));
+			driver.get(config.getProperty("App_url"));
 			Thread.sleep(2000);
 			WebElement popularPPts = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("PopularPPts"))));

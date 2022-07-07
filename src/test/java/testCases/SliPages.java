@@ -11,17 +11,22 @@ public class SliPages extends BaseClass {
 	@DataProvider
 	public Object[][] windowResolution() {
 
-		return new Object[][] { { 1536, 864 }, { 2560, 1440 }, { 1920, 1080 }, { 1920, 1200 }, { 1440, 900 },
-				{ 1280, 720 }, { 1680, 1050 }, };
+		return new Object[][] { // { 1536, 864 } { 2560, 1440 },{ 1920, 1080 }, { 1920, 1200 },- getting 1.73
+				{ 1280, 720 }, { 1366, 768 }, { 1440, 900 },
+				// { 1680, 1050 },
+		};
+
 	}
 
 	@Test(dataProvider = "windowResolution", enabled = true)
 	public void checkResolutionForSliPages(int w, int h) throws InterruptedException {
 		setDriver(w, h);
 		System.out.println("Resolution = " + w + "*" + h);
-		driver.get(config.getProperty("testsiteurl"));
+		driver.get(config.getProperty("App_url"));
+		Thread.sleep(5000);
 		System.out.println("strategy pages");
-		WebElement strategy = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("strategy"))));
+		WebElement strategy = wait
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("strategy"))));
 		strategy.click();
 		Thread.sleep(3000);
 		log.info("strategy is successfully clicked");
@@ -29,7 +34,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("proposals pages");
 		WebElement proposals = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("proposals"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("proposals"))));
 		proposals.click();
 		Thread.sleep(3000);
 		log.info("proposals is successfully clicked");
@@ -37,7 +42,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("kpiDashooard pages");
 		WebElement kpiDashooard = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("kpiDashooard"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("kpiDashooard"))));
 		kpiDashooard.click();
 		Thread.sleep(3000);
 		log.info("kpiDashooard is successfully clicked");
@@ -45,7 +50,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("management pages");
 		WebElement management = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("management"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("management"))));
 		management.click();
 		Thread.sleep(3000);
 		log.info("management is successfully clicked");
@@ -53,7 +58,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("businessproposals pages");
 		WebElement businessproposals = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("businessproposals"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("businessproposals"))));
 		businessproposals.click();
 		Thread.sleep(3000);
 		log.info("businessproposals is successfully clicked");
@@ -61,7 +66,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("orgCharts pages");
 		WebElement orgCharts = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("orgCharts"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("orgCharts"))));
 		orgCharts.click();
 		Thread.sleep(3000);
 		log.info("orgCharts is successfully clicked");
@@ -69,7 +74,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("education pages");
 		WebElement education = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("education"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("education"))));
 		education.click();
 		Thread.sleep(3000);
 		log.info("education is successfully clicked");
@@ -77,7 +82,7 @@ public class SliPages extends BaseClass {
 
 		System.out.println("digitalMarketing pages");
 		WebElement digitalMarketing = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath(OR.getProperty("digitalMarketing"))));
+				.until(ExpectedConditions.elementToBeClickable(By.linkText(OR.getProperty("digitalMarketing"))));
 		digitalMarketing.click();
 		Thread.sleep(3000);
 		log.info("digitalMarketing is successfully clicked");

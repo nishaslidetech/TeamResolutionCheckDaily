@@ -102,7 +102,7 @@ public class rough extends BaseClass {
 				// click on pagination link
 
 				for (int j = 1; j < 2; j++) {
-					BaseClass.checkResolutionForA4Pages(driver, w, h);
+					BaseClass.checkResolutionForA4Pages1(driver, w, h);
 
 					if (!driver.findElements(By.xpath(OR.getProperty("NextButton"))).isEmpty()) {
 						WebElement nextButton = driver.findElement(By.xpath(OR.getProperty("NextButton")));

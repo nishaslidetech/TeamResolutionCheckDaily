@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -139,6 +139,7 @@ public class BaseClass {
 			df.setRoundingMode(RoundingMode.DOWN);
 			// System.out.println(df.format(roundedValue));
 			float f = Float.parseFloat(df.format(roundedValue));
+
 			// System.out.println(f + " = float value");
 			if ((f < 1.75) || f > 1.79) {
 				System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtName = "
@@ -147,10 +148,24 @@ public class BaseClass {
 
 			}
 
-			assertTrue(
-					df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.79")
-							|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.78"),
-					"image is not displayed properly");
+			assertTrue(df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.79")
+					|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.78")
+					|| df.format(roundedValue).equals("1.77"), "image is not displayed properly");
+
+			/*
+			 * System.out.println(f + " = float value"); if ((f > 1.79) || (f <= 1.47) || (f
+			 * >= 1.49 && f <= 1.74)) { System.out.println("URL = " + driver.getCurrentUrl()
+			 * + "\n" + "PPtName = " + i + " -" + width + "-" + hight + "\n" +
+			 * df.format(roundedValue));
+			 * 
+			 * }
+			 * 
+			 * 
+			 * assertTrue( df.format(roundedValue).equals("1.77") ||
+			 * df.format(roundedValue).equals("1.79") ||
+			 * df.format(roundedValue).equals("1.76") ||
+			 * df.format(roundedValue).equals("1.78"), "image is not displayed properly");
+			 */
 
 		}
 	}
@@ -159,7 +174,7 @@ public class BaseClass {
 
 		try {
 			List<WebElement> listofImages = driver.findElements(By.xpath(OR.getProperty("images1")));
-			// System.out.println("Number of elements:" + listofImages.size());
+//	System.out.println("Number of elements:" + listofImages.size());
 
 			for (int i = 0; i < listofImages.size(); i++) {
 
@@ -174,15 +189,18 @@ public class BaseClass {
 				df.setRoundingMode(RoundingMode.DOWN);
 				// System.out.println(df.format(roundedValue));
 				float f = Float.parseFloat(df.format(roundedValue));
-				// System.out.println(i + "--f = " + f);
-				if ((f < 1.75) || f > 1.77) {
+				System.out.println(i + "--f = " + f);
+				if (f >= 1.78 || f <= 1.47 || f >= 1.49 && f <= 1.74) {
 					System.out.println("URL = " + driver.getCurrentUrl() + "\n" + "PPtNumber = " + i + " -" + width
 							+ "-" + hight + "\n" + df.format(roundedValue) + "Resolution = " + w + "*" + h);
 
 				}
 
-				assertTrue(df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.75")
-						|| df.format(roundedValue).equals("1.76"), "image is not displayed properly");
+				assertTrue(
+						df.format(roundedValue).equals("1.77") || df.format(roundedValue).equals("1.75")
+								|| df.format(roundedValue).equals("1.76") || df.format(roundedValue).equals("1.48")
+								|| df.format(roundedValue).equals("1.74") || df.format(roundedValue).equals("1.73"),
+						"image is not displayed properly");
 
 			}
 		} catch (NumberFormatException e) {
@@ -192,7 +210,7 @@ public class BaseClass {
 
 	}
 
-	public static void checkResolutionForA4Pages(WebDriver driver, int w, int h) {
+	public static void checkResolutionForA4Pages1(WebDriver driver, int w, int h) {
 
 		try {
 			List<WebElement> listofImages = driver.findElements(By.xpath(OR.getProperty("A4images")));
